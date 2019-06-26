@@ -15,8 +15,6 @@
        WORKING-STORAGE SECTION.
         01 CIRCLE-STATS.
              05 WS-RADIUS PIC 9999V99999.
-             05 WS-DIAMETER PIC 9999V99999.
-             05 WS-R-SQRD PIC 999V9999.
         01 WS-CONSTANTS.
              05 WS-PI PIC 9V99999 VALUE 3.14159.
         01 WS-RESULTS.
@@ -28,10 +26,8 @@
 
            DISPLAY "Enter the radius of the circle:".
            ACCEPT WS-RADIUS.
-           MULTIPLY WS-RADIUS BY 2 GIVING WS-DIAMETER.
-           MULTIPLY WS-RADIUS BY WS-RADIUS GIVING WS-R-SQRD.
-           MULTIPLY WS-PI BY WS-DIAMETER GIVING WS-CIRCUM.
-           MULTIPLY WS-PI BY WS-R-SQRD GIVING WS-AREA.
+           COMPUTE WS-CIRCUM = 2 * WS-PI * WS-RAIUS.
+           COMPUTE WS-AREA = WS-PI * WS-RADIUS * WS-RADIUS.
            DISPLAY "The circumpherence of the circle is ", WS-CIRCUM.
            DISPLAY "The area of the circle is ", WS-AREA.
 
